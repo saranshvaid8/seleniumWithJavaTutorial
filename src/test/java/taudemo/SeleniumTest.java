@@ -3,10 +3,12 @@ package taudemo;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
-
+@TestInstance(PER_CLASS)
 public class SeleniumTest {
 
 
@@ -23,7 +25,7 @@ public class SeleniumTest {
     @Test
     public void openThePageAndCheckTheTitle() {
         //Do something
-        assertEquals("", "");
+        assertEquals("expected", "expected");
     }
 
     @Test
