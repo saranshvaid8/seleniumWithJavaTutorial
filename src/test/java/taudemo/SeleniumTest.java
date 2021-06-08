@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
+
 @TestInstance(PER_CLASS)
 public class SeleniumTest {
  private WebDriver driver;
