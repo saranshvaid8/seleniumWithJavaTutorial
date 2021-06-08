@@ -1,36 +1,47 @@
 package taudemo;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
 @TestInstance(PER_CLASS)
 public class SeleniumTest {
+ private WebDriver driver;
+ private final String url = "https://www.google.com";
 
 
-    @BeforeAll
+
+    @Before
     public void beforeAll() {
-
+        System.setProperty("webdriver.chrome.driver","src/test/browserDrivers/chromedriver.exe");
+        driver = new ChromeDriver();
     }
 
-    @AfterAll
+    @After
     public void afterAll() {
-
+        driver.close();
+        driver.quit();
     }
 
     @Test
-    public void openThePageAndCheckTheTitle() {
+    public void openGoogleAndCheckTheTitle() {
         //Do something
-        assertEquals("expected", "expected");
+
+        driver.get(url);
+        assertEquals("Google", driver.getTitle());
+
     }
 
     @Test
     public void openTheOrgPageAndCheckTheTitle() {
         //Do something
-        assertEquals("", "");
+        driver.get(url);
+        assertEquals("Google", driver.getTitle());
     }
 }
